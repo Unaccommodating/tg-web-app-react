@@ -19,7 +19,7 @@ function App() {
     return (
       <div className="App">
           work
-          <button onClick={onClose}>Закрыть</button>
+          {/*<button onClick={onClose}>Закрыть</button>*/}
         {/*<Header />*/}
         {/*<Routes>*/}
         {/*  <Route index element={<ProductList />}/>*/}
