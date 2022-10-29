@@ -5,14 +5,14 @@ import {useTelegram} from "../../hooks/useTelegram";
 import {useCallback, useEffect} from "react";
 
 const products = [
-    {id: '1', title: 'Джинсы', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '2', title: 'Куртка', price: 12000, description: 'Зеленого цвета, теплая'},
-    {id: '3', title: 'Джинсы 2', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '4', title: 'Куртка 8', price: 122, description: 'Зеленого цвета, теплая'},
-    {id: '5', title: 'Джинсы 3', price: 5000, description: 'Синего цвета, прямые'},
-    {id: '6', title: 'Куртка 7', price: 600, description: 'Зеленого цвета, теплая'},
-    {id: '7', title: 'Джинсы 4', price: 5500, description: 'Синего цвета, прямые'},
-    {id: '8', title: 'Куртка 5', price: 12000, description: 'Зеленого цвета, теплая'},
+    {id: '1', title: 'Алина', price: 5000, description: '40 лет, блондинка'},
+    {id: '2', title: 'Настя', price: 10000, description: '22 лет, шатенка'},
+    {id: '3', title: 'Полина', price: 5000, description: '19 лет, рыжая'},
+    {id: '4', title: 'Вика', price: 2500, description: '25 лет, блондинка'},
+    {id: '5', title: 'Ирина', price: 5000, description: '18 лет, брюнетка'},
+    {id: '6', title: 'Вероника', price: 4600, description: '21 лет, брюнетка'},
+    {id: '7', title: 'Стася', price: 5500, description: '32 лет, блондинка'},
+    {id: '8', title: 'Оля', price: 3000, description: '40 лет, шатенка'},
 ]
 
 const getTotalPrice = (items = []) => {
