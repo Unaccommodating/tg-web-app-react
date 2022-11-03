@@ -50,12 +50,12 @@ const Form = () => {
     }, [])
 
     useEffect(() => {
-        if(!street || !country) {
+        if(!name) {
             tg.MainButton.hide();
         } else {
             tg.MainButton.show();
         }
-    }, [country, street])
+    }, [name])
 
     const onChangeName = (e) => {
         setName(e.target.value)
@@ -107,7 +107,7 @@ const Form = () => {
 
     return (
         <div className={"form"}>
-            <h3>Введите ваши данные</h3>
+            <h3>Заполните анкету</h3>
             <input
                 className={'input'}
                 type="text"
@@ -144,7 +144,7 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Цвето волос'}
+                placeholder={'Цвет волос'}
                 value={hairsColor}
                 onChange={onChangeHairsColor}
             />
@@ -158,27 +158,27 @@ const Form = () => {
             <input
                 className={'input'}
                 type="number"
-                placeholder={'телефон'}
+                placeholder={'Телефон'}
                 value={telephone}
                 onChange={onChangeTelephone}
             />
             <input
                 className={'input'}
                 type="text"
-                placeholder={'телеграм'}
+                placeholder={'Телеграм'}
                 value={telegram}
                 onChange={onChangeTelegram}
             />
             <input
                 className={'input'}
                 type="number"
-                placeholder={'цена'}
+                placeholder={'Цена'}
                 value={dateCost}
                 onChange={onChangeDateCost}
             />
             <select value={photoType} onChange={onChangePhotoType} className={'select'}>
                 <option value={'real'}>Реальное фото</option>
-                <option value={'likeMe'}>Похоже на меня</option>
+                <option value={'likeMe'}>Похожее на меня</option>
             </select>
             <select value={city} onChange={onChangeBreast} className={'select'}>
                 <option value={'Moscow'}>Москва</option>
