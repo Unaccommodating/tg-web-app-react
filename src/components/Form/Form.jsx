@@ -180,7 +180,7 @@ const Form = () => {
                 <option value={'real'}>Реальное фото</option>
                 <option value={'likeMe'}>Похожее на меня</option>
             </select>
-            <select value={city} onChange={onChangeBreast} className={'select'}>
+            <select value={city} onChange={onChangeCity} className={'select'}>
                 <option value={'Moscow'}>Москва</option>
                 <option value={'Paris'}>Париж</option>
             </select>
