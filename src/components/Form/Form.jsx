@@ -3,19 +3,38 @@ import './Form.css';
 import {useTelegram} from "../../hooks/useTelegram";
 
 const Form = () => {
-    const [country, setCountry] = useState('');
-    const [street, setStreet] = useState('');
-    const [subject, setSubject] = useState('physical');
+    const [name, setName] = useState('');
+    const [age, setAge] = useState('');
+    const [height, setHeight] = useState('');
+    const [weight, setWeight] = useState('');
+    const [breast, setBreast] = useState('');
+    const [hairsColor, setHairsColor] = useState('');
+    const [description, setDescription] = useState('');
+    const [telephone, setTelephone] = useState('');
+    const [telegram, setTelegram] = useState('');
+    const [dateCost, setDateCost] = useState('');
+    const [photoType, setPhotoType] = useState('');
+    const [city, setCity] = useState('');
+
     const {tg} = useTelegram();
 
     const onSendData = useCallback(() => {
         const data = {
-            country,
-            street,
-            subject
+            name,
+            age,
+            height,
+            weight,
+            breast,
+            hairsColor,
+            description,
+            telephone,
+            telegram,
+            dateCost,
+            photoType,
+            city,
         }
         tg.sendData(JSON.stringify(data));
-    }, [country, street, subject])
+    }, [name, age, height, weight, breast, hairsColor, description, telephone, telegram, dateCost, photoType, city])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -26,7 +45,7 @@ const Form = () => {
 
     useEffect(() => {
         tg.MainButton.setParams({
-            text: 'Отправить данные'
+            text: 'Разместить анкету'
         })
     }, [])
 
@@ -38,16 +57,52 @@ const Form = () => {
         }
     }, [country, street])
 
-    const onChangeCountry = (e) => {
-        setCountry(e.target.value)
+    const onChangeName = (e) => {
+        setName(e.target.value)
     }
 
-    const onChangeStreet = (e) => {
-        setStreet(e.target.value)
+    const onChangeAge = (e) => {
+        setAge(e.target.value)
     }
 
-    const onChangeSubject = (e) => {
-        setSubject(e.target.value)
+    const onChangeHeight = (e) => {
+        setHeight(e.target.value)
+    }
+
+    const onChangeWeight = (e) => {
+        setWeight(e.target.value)
+    }
+
+    const onChangeBreast = (e) => {
+        setBreast(e.target.value)
+    }
+
+    const onChangeHairsColor = (e) => {
+        setHairsColor(e.target.value)
+    }
+
+    const onChangeDescription = (e) => {
+        setDescription(e.target.value)
+    }
+
+    const onChangeTelephone = (e) => {
+        setTelephone(e.target.value)
+    }
+
+    const onChangeTelegram = (e) => {
+        setTelegram(e.target.value)
+    }
+
+    const onChangeDateCost = (e) => {
+        setDateCost(e.target.value)
+    }
+
+    const onChangePhotoType = (e) => {
+        setPhotoType(e.target.value)
+    }
+
+    const onChangeCity = (e) => {
+        setCity(e.target.value)
     }
 
     return (
@@ -56,20 +111,78 @@ const Form = () => {
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Страна'}
-                value={country}
-                onChange={onChangeCountry}
+                placeholder={'Имя'}
+                value={name}
+                onChange={onChangeName}
+            />
+            <input
+                className={'input'}
+                type="number"
+                placeholder={'Возраст'}
+                value={age}
+                onChange={onChangeAge}
+            />
+            <input
+                className={'input'}
+                type="number"
+                placeholder={'Рост'}
+                value={height}
+                onChange={onChangeHeight}
+            />
+            <input
+                className={'input'}
+                type="number"
+                placeholder={'Вес'}
+                value={height}
+                onChange={onChangeWeight}
+            />
+            <select value={breast} onChange={onChangeBreast} className={'select'}>
+                <option value={'lil'}>Миниатюрная</option>
+                <option value={'normal'}>Средняя</option>
+                <option value={'big'}>Большая</option>
+            </select>
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'Цвето волос'}
+                value={hairsColor}
+                onChange={onChangeHairsColor}
             />
             <input
                 className={'input'}
                 type="text"
-                placeholder={'Улица'}
-                value={street}
-                onChange={onChangeStreet}
+                placeholder={'О себе'}
+                value={description}
+                onChange={onChangeDescription}
             />
-            <select value={subject} onChange={onChangeSubject} className={'select'}>
-                <option value={'physical'}>Физ. лицо</option>
-                <option value={'legal'}>Юр. лицо</option>
+            <input
+                className={'input'}
+                type="number"
+                placeholder={'телефон'}
+                value={telephone}
+                onChange={onChangeTelephone}
+            />
+            <input
+                className={'input'}
+                type="text"
+                placeholder={'телеграм'}
+                value={telegram}
+                onChange={onChangeTelegram}
+            />
+            <input
+                className={'input'}
+                type="number"
+                placeholder={'цена'}
+                value={dateCost}
+                onChange={onChangeDateCost}
+            />
+            <select value={photoType} onChange={onChangePhotoType} className={'select'}>
+                <option value={'real'}>Реальное фото</option>
+                <option value={'likeMe'}>Похоже на меня</option>
+            </select>
+            <select value={city} onChange={onChangeBreast} className={'select'}>
+                <option value={'Moscow'}>Москва</option>
+                <option value={'Paris'}>Париж</option>
             </select>
         </div>
     );
