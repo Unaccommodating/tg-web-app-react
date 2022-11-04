@@ -133,7 +133,7 @@ const Form = () => {
                 className={'input'}
                 type="number"
                 placeholder={'Вес'}
-                value={height}
+                value={weight}
                 onChange={onChangeWeight}
             />
             <select value={breast} onChange={onChangeBreast} className={'select'}>
