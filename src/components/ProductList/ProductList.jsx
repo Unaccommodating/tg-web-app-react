@@ -15,12 +15,6 @@ const products = [
     {id: '8', title: 'Оля', price: 3000, description: '40 лет, шатенка'},
 ]
 
-const getTotalPrice = (items = []) => {
-    return items.reduce((acc, item) => {
-        return acc += item.price
-    }, 0)
-}
-
 const ProductList = () => {
     const [addedItems, setAddedItems] = useState([]);
     const {tg, queryId} = useTelegram();
@@ -28,7 +22,6 @@ const ProductList = () => {
     const onSendData = useCallback(() => {
         const data = {
             products: addedItems,
-            totalPrice: getTotalPrice(addedItems),
             queryId,
         }
         fetch('http://85.119.146.179:8000/web-data', {
@@ -66,9 +59,6 @@ const ProductList = () => {
             tg.MainButton.setParams({
                 text: `Позвонить`
             })
-            // tg.MainButton.setParams({
-            //     text: `Позвонить ${getTotalPrice(newItems)}`
-            // })
         }
     }
 

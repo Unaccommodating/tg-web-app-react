@@ -15,6 +15,8 @@ const Form = () => {
     const [dateCost, setDateCost] = useState('');
     const [photoType, setPhotoType] = useState('');
     const [city, setCity] = useState('');
+    const [sex, setSex] = useState('');
+    const [metro, setMetro] = useState('');
 
     const {tg} = useTelegram();
 
@@ -32,9 +34,11 @@ const Form = () => {
             dateCost,
             photoType,
             city,
+            sex,
+            metro
         }
         tg.sendData(JSON.stringify(data));
-    }, [name, age, height, weight, breast, hairsColor, description, telephone, telegram, dateCost, photoType, city])
+    }, [name, age, height, weight, breast, hairsColor, description, telephone, telegram, dateCost, photoType, city, sex, metro])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -105,9 +109,21 @@ const Form = () => {
         setCity(e.target.value)
     }
 
+    const onChangeSex = (e) => {
+        setSex(e.target.value)
+    }
+
+    const onChangeMetro = (e) => {
+        setMetro(e.target.value)
+    }
+
     return (
         <div className={"form"}>
             <h3>Заполните анкету</h3>
+            <select value={city} onChange={onChangeSex} className={'select'}>
+                <option value={'M'}>Девушка</option>
+                <option value={'F'}>Парень</option>
+            </select>
             <input
                 className={'input'}
                 type="text"
@@ -182,7 +198,11 @@ const Form = () => {
             </select>
             <select value={city} onChange={onChangeCity} className={'select'}>
                 <option value={'Moscow'}>Москва</option>
-                <option value={'Paris'}>Париж</option>
+                <option value={'Paris'}>Казань</option>
+            </select>
+            <select value={metro} onChange={onChangeMetro} className={'select'}>
+                <option value={'Kr'}>Кремлёвская</option>
+                <option value={'M'}>Горки</option>
             </select>
         </div>
     );
