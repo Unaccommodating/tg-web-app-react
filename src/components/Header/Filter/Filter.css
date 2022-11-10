@@ -14,7 +14,7 @@
 }
 
 .filter.active{
-    opacity: 0.7;
+    opacity: 1;
     pointer-events: all;
 }
 
@@ -24,10 +24,9 @@
     background-color: white;
     transform: scale(0,5);
     transition: 0.4s all;
-    width: 50vw;
+    width: 80vw;
 }
 
 .popup.active{
-    opacity: 1;
     transform: scale(0.5);
 }
