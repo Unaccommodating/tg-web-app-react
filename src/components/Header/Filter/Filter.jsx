@@ -86,7 +86,7 @@ const Filter = ({active, setActive}) => {
             <div className={active ? "popup active" : "popup"}>
                 <Button onClick={() => setActive(false)}>Назад</Button>
                 <div className="filter_settings">
-                    <h3>Заполните анкету</h3>
+                    <h3>Выберите параметры</h3>
                     <select value={sex} onChange={onChangeSex} className={'select'}>
                         <option value={'M'}>Девушка</option>
                         <option value={'F'}>Парень</option>
