@@ -120,7 +120,7 @@ const Form = () => {
     return (
         <div className={"form"}>
             <h3>Заполните анкету</h3>
-            <select value={city} onChange={onChangeSex} className={'select'}>
+            <select value={sex} onChange={onChangeSex} className={'select'}>
                 <option value={'M'}>Девушка</option>
                 <option value={'F'}>Парень</option>
             </select>
@@ -145,25 +145,22 @@ const Form = () => {
                 value={height}
                 onChange={onChangeHeight}
             />
-            <input
-                className={'input'}
-                type="number"
-                placeholder={'Вес'}
-                value={weight}
-                onChange={onChangeWeight}
-            />
+            <select value={city} onChange={onChangeWeight} className={'select'}>
+                <option value={'tall'}>худые</option>
+                <option value={'fat'}>в теле</option>
+            </select>
             <select value={breast} onChange={onChangeBreast} className={'select'}>
                 <option value={'lil'}>Миниатюрная</option>
                 <option value={'normal'}>Средняя</option>
                 <option value={'big'}>Большая</option>
             </select>
-            <input
-                className={'input'}
-                type="text"
-                placeholder={'Цвет волос'}
-                value={hairsColor}
-                onChange={onChangeHairsColor}
-            />
+            <select value={hairsColor} onChange={onChangeHairsColor} className={'select'}>
+                <option value={'blonde'}>Блондинки</option>
+                <option value={'brunette'}>Брюнетки</option>
+                <option value={'brown'}>Шатенки</option>
+                <option value={'red'}>Рыжие</option>
+                <option value={'fair'}>Русые</option>
+            </select>
             <input
                 className={'input'}
                 type="text"
