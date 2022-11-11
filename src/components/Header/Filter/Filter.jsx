@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Filter.css';
 import {useTelegram} from "../../../hooks/useTelegram";
 import Button from "../../Button/Button";
-import {useCallback, useEffect} from "@types/react";
+import {useCallback, useEffect} from "react";
 
 const Filter = ({active, setActive}) => {
     const [sex, setSex] = useState('');
@@ -14,6 +14,8 @@ const Filter = ({active, setActive}) => {
     const [dateCost, setDateCost] = useState('');
     const [city, setCity] = useState('');
     const [metro, setMetro] = useState('');
+
+    const {tg} = useTelegram();
 
     const onSendData = useCallback(() => {
         const data = {
@@ -115,9 +117,9 @@ const Filter = ({active, setActive}) => {
                         <option value={'fat'}>в теле</option>
                     </select>
                     <select value={breast} onChange={onChangeBreast} className={'select'}>
-                        <option value={'lil'}>Миниатюрная</option>
-                        <option value={'normal'}>Средняя</option>
-                        <option value={'big'}>Большая</option>
+                        <option value={'lil'}>Миниатюрная грудь</option>
+                        <option value={'normal'}>Средняя грудь</option>
+                        <option value={'big'}>Большая грудь</option>
                     </select>
                     <select value={hairsColor} onChange={onChangeHairsColor} className={'select'}>
                         <option value={'blonde'}>Блондинки</option>

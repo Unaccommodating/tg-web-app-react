@@ -24,9 +24,9 @@
     background-color: white;
     transform: scale(0,5);
     transition: 0.4s all;
-    width: 80vw;
+    width: 100vw;
 }
 
 .popup.active{
-    transform: scale(0.5);
+    transform: scale(1);
 }
