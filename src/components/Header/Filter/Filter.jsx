@@ -3,6 +3,7 @@ import './Filter.css';
 import {useTelegram} from "../../../hooks/useTelegram";
 import Button from "../../Button/Button";
 import {useCallback, useEffect} from "react";
+import "../Filter/Filter.css"
 
 const Filter = ({active, setActive}) => {
     const [sex, setSex] = useState('');
@@ -85,7 +86,7 @@ const Filter = ({active, setActive}) => {
         <div className={active ? "filter active" : "filter"}>
             <div className={active ? "popup active" : "popup"}>
                 <Button onClick={() => setActive(false)}>Назад</Button>
-                <div className="filter_settings">
+                <div className="form">
                     <h3>Выберите параметры</h3>
                     <select value={sex} onChange={onChangeSex} className={'select'}>
                         <option value={'M'}>Девушка</option>
