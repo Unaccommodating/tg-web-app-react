@@ -89,18 +89,22 @@ const Filter = ({active, setActive}) => {
                 <div className="form">
                     <h3>Выберите параметры</h3>
                     <select value={sex} onChange={onChangeSex} className={'select'}>
+                        <option value disabled selected>Пол </option>
                         <option value={'M'}>Девушка</option>
                         <option value={'F'}>Парень</option>
                     </select>
                     <select value={city} onChange={onChangeCity} className={'select'}>
+                        <option value disabled selected>Город 🌇</option>
                         <option value={'Moscow'}>Москва</option>
                         <option value={'Paris'}>Казань</option>
                     </select>
                     <select value={metro} onChange={onChangeMetro} className={'select'}>
+                        <option value disabled selected>Метро</option>
                         <option value={'Kr'}>Кремлёвская</option>
                         <option value={'M'}>Горки</option>
                     </select>
                     <select value={age} onChange={onChangeAge} className={'select'}>
+                        <option value disabled selected>Возраст 🔞</option>
                         <option value={'1820'}>18-20</option>
                         <option value={'2125'}>21-25</option>
                         <option value={'2630'}>26-30</option>
@@ -118,9 +122,10 @@ const Filter = ({active, setActive}) => {
                         <option value={'fat'}>в теле</option>
                     </select>
                     <select value={breast} onChange={onChangeBreast} className={'select'}>
-                        <option value={'lil'}>Миниатюрная грудь</option>
-                        <option value={'normal'}>Средняя грудь</option>
-                        <option value={'big'}>Большая грудь</option>
+                        <option value disabled selected>Размер 🍒</option>
+                        <option value={'lil'}>Миниатюрная</option>
+                        <option value={'normal'}>Средняя</option>
+                        <option value={'big'}>Большая</option>
                     </select>
                     <select value={hairsColor} onChange={onChangeHairsColor} className={'select'}>
                         <option value={'blonde'}>Блондинки</option>
@@ -132,7 +137,7 @@ const Filter = ({active, setActive}) => {
                     <input
                         className={'input'}
                         type="number"
-                        placeholder={'Цена'}
+                        placeholder={'Цена 🤑 '}
                         value={dateCost}
                         onChange={onChangeDateCost}
                     />
