@@ -17,6 +17,7 @@ const Form = () => {
     const [city, setCity] = useState('');
     const [sex, setSex] = useState('');
     const [metro, setMetro] = useState('');
+    const [nationality, setNationality] = useState('');
 
     const {tg} = useTelegram();
 
@@ -35,10 +36,12 @@ const Form = () => {
             photoType,
             city,
             sex,
-            metro
+            metro,
+            nationality
         }
         tg.sendData(JSON.stringify(data));
-    }, [name, age, height, weight, breast, hairsColor, description, telephone, telegram, dateCost, photoType, city, sex, metro])
+    }, [name, age, height, weight, breast, hairsColor, description,
+        telephone,telegram, dateCost, photoType, city, sex, metro, nationality])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -117,14 +120,13 @@ const Form = () => {
         setMetro(e.target.value)
     }
 
+    const onChangeNationality = (e) => {
+        setNationality(e.target.value)
+    }
+
     return (
         <div className={"form"}>
             <h3>Заполните анкету</h3>
-            <select value={sex} onChange={onChangeSex} className={'select'}>
-                <option value disabled selected>Пол 🚺🚹</option>
-                <option value={'M'}>Девушка</option>
-                <option value={'F'}>Парень</option>
-            </select>
             <input
                 className={'input'}
                 type="text"
@@ -135,29 +137,41 @@ const Form = () => {
             <input
                 className={'input'}
                 type="number"
-                placeholder={'Возраст 🔞'}
+                placeholder={'Возраст'}
                 value={age}
                 onChange={onChangeAge}
             />
+            <select value={sex} onChange={onChangeSex} className={'select'}>
+                <option value disabled selected>Пол</option>
+                <option value={'M'}>Девушка</option>
+                <option value={'F'}>Парень</option>
+            </select>
+            <select value={nationality} onChange={onChangeNationality} className={'select'}>
+                <option value disabled selected>Национальность</option>
+                <option value={'ru'}>Славянки</option>
+                <option value={'az'}>Азиатки</option>
+                <option value={'br'}>Негритянки</option>
+                <option value={'east'}>Восточная</option>
+            </select>
             <select value={height} onChange={onChangeHeight} className={'select'}>
-                <option value disabled selected>Рост 📏</option>
+                <option value disabled selected>Рост</option>
                 <option value={'lil'}>Миниатюрная</option>
                 <option value={'normal'}>Средняя</option>
                 <option value={'height'}>Высокая</option>
             </select>
             <select value={weight} onChange={onChangeWeight} className={'select'}>
-                <option value disabled selected>Телосложение 🧘‍♀️</option>
+                <option value disabled selected>Телосложение</option>
                 <option value={'tall'}>Худая</option>
                 <option value={'fat'}>В теле</option>
             </select>
             <select value={breast} onChange={onChangeBreast} className={'select'}>
-                <option value disabled selected>Грудь 🍒</option>
+                <option value disabled selected>Грудь</option>
                 <option value={'lil'}>Миниатюрная</option>
                 <option value={'normal'}>Средняя</option>
                 <option value={'big'}>Большая</option>
             </select>
             <select value={hairsColor} onChange={onChangeHairsColor} className={'select'}>
-                <option value disabled selected>Цвет волос 👩🏻‍🦰</option>
+                <option value disabled selected>Цвет волос</option>
                 <option value={'blonde'}>Блондинки</option>
                 <option value={'brunette'}>Брюнетки</option>
                 <option value={'brown'}>Шатенки</option>
@@ -188,7 +202,7 @@ const Form = () => {
             <input
                 className={'input'}
                 type="number"
-                placeholder={'Цена 💵'}
+                placeholder={'Цена'}
                 value={dateCost}
                 onChange={onChangeDateCost}
             />

@@ -15,6 +15,7 @@ const Filter = ({active, setActive}) => {
     const [dateCost, setDateCost] = useState('');
     const [city, setCity] = useState('');
     const [metro, setMetro] = useState('');
+    const [nationality, setNationality] = useState('');
 
     const {tg} = useTelegram();
 
@@ -28,10 +29,11 @@ const Filter = ({active, setActive}) => {
             dateCost,
             city,
             sex,
-            metro
+            metro,
+            nationality
         }
         tg.sendData(JSON.stringify(data));
-    }, [name, age, height, weight, breast, hairsColor, dateCost, city, sex, metro])
+    }, [name, age, height, weight, breast, hairsColor, dateCost, city, sex, metro, nationality])
 
     useEffect(() => {
         tg.onEvent('mainButtonClicked', onSendData)
@@ -82,6 +84,10 @@ const Filter = ({active, setActive}) => {
         setMetro(e.target.value)
     }
 
+    const onChangeNationality = (e) => {
+        setNationality(e.target.value)
+    }
+
     return (
         <div className={active ? "filter active" : "filter"}>
             <div className={active ? "popup active" : "popup"}>
@@ -89,22 +95,30 @@ const Filter = ({active, setActive}) => {
                 <div className="form">
                     <h3>Выберите параметры</h3>
                     <select value={sex} onChange={onChangeSex} className={'select'}>
-                        <option value disabled selected>Пол 🚺🚹</option>
+                        <option value disabled selected>Пол</option>
                         <option value={'M'}>Девушка</option>
                         <option value={'F'}>Парень</option>
                     </select>
                     <select value={city} onChange={onChangeCity} className={'select'}>
-                        <option value disabled selected>Город 🌇</option>
+                        <option value disabled selected>Город</option>
                         <option value={'Moscow'}>Москва</option>
                         <option value={'Paris'}>Казань</option>
                     </select>
                     <select value={metro} onChange={onChangeMetro} className={'select'}>
-                        <option value disabled selected>Метро 🚇</option>
+                        <option value disabled selected>Метро</option>
                         <option value={'Kr'}>Кремлёвская</option>
                         <option value={'M'}>Горки</option>
                     </select>
+                    <select value={dateCost} onChange={onChangeDateCost} className={'select'}>
+                        <option value disabled selected>Цена</option>
+                        <option value={'2000'}>До 2000</option>
+                        <option value={'2000-3000'}>2000-3000</option>
+                        <option value={'3000-5000'}>3000-5000</option>
+                        <option value={'5000-7000'}>5000-7000</option>
+                        <option value={'7000'}>Выше 7000</option>
+                    </select>
                     <select value={age} onChange={onChangeAge} className={'select'}>
-                        <option value disabled selected>Возраст 🔞</option>
+                        <option value disabled selected>Возраст</option>
                         <option value={'1820'}>18-20</option>
                         <option value={'2125'}>21-25</option>
                         <option value={'2630'}>26-30</option>
@@ -113,37 +127,36 @@ const Filter = ({active, setActive}) => {
                         <option value={'4075'}>40-75</option>
                     </select>
                     <select value={height} onChange={onChangeHeight} className={'select'}>
-                        <option value disabled selected>Рост 📏</option>
+                        <option value disabled selected>Рост</option>
                         <option value={'lil'}>Миниатюрные</option>
                         <option value={'normal'}>Средние</option>
                         <option value={'height'}>Высокие</option>
                     </select>
                     <select value={weight} onChange={onChangeWeight} className={'select'}>
-                        <option value disabled selected>Телосложение 🧘‍♀️</option>
+                        <option value disabled selected>Телосложение</option>
                         <option value={'tall'}>Худые</option>
                         <option value={'fat'}>В теле</option>
                     </select>
                     <select value={breast} onChange={onChangeBreast} className={'select'}>
-                        <option value disabled selected>Размер 🍒</option>
+                        <option value disabled selected>Размер</option>
                         <option value={'lil'}>Миниатюрная</option>
                         <option value={'normal'}>Средняя</option>
                         <option value={'big'}>Большая</option>
                     </select>
                     <select value={hairsColor} onChange={onChangeHairsColor} className={'select'}>
-                        <option value disabled selected>Цвет волос 👩🏻‍🦰</option>
+                        <option value disabled selected>Цвет волос</option>
                         <option value={'blonde'}>Блондинки</option>
                         <option value={'brunette'}>Брюнетки</option>
                         <option value={'brown'}>Шатенки</option>
                         <option value={'red'}>Рыжие</option>
                         <option value={'fair'}>Русые</option>
                     </select>
-                    <select value={dateCost} onChange={onChangeDateCost} className={'select'}>
-                        <option value disabled selected>Цена 💵 </option>
-                        <option value={'2000'}>До 2000</option>
-                        <option value={'2000-3000'}>2000-3000</option>
-                        <option value={'3000-5000'}>3000-5000</option>
-                        <option value={'5000-7000'}>5000-7000</option>
-                        <option value={'7000'}>Выше 7000</option>
+                    <select value={nationality} onChange={onChangeNationality} className={'select'}>
+                        <option value disabled selected>Национальность</option>
+                        <option value={'ru'}>Славянки</option>
+                        <option value={'az'}>Азиатки</option>
+                        <option value={'br'}>Негритянки</option>
+                        <option value={'east'}>Восточная</option>
                     </select>
                 </div>
             </div>
